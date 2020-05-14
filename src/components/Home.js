@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import ButtonLogout from './ButtonLogout';
+import logic from '../logic';
+
 
 export default class Home extends Component {
 
   state = { data: {} }
 
-  fetchUserData = ({username,token}) => {
-    fetch(`http://localhost:8080/info/${username}/${token}`)
-    .then(res => res.json())
-    .then(data => {
-     this.setState({data})
-    })
+  fetchUserData =  async ({username,token}) => {
+    try {          
+      const data = await logic.retrieveUser(username, token)
+      this.setState({data})
+    
+    } catch({message}) {
+      this.setState({error: message})
+   }
+  
   }
 
   componentDidMount () {

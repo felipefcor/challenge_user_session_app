@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logic from '../logic';
 
 
 export default class LoginForm extends Component {
@@ -6,6 +7,7 @@ export default class LoginForm extends Component {
   state = {
     userName: '',
     userPassword: '',
+    error: ''
   }
 
   handleUserName = (e) => {
@@ -21,22 +23,17 @@ export default class LoginForm extends Component {
     e.preventDefault()
     const { userName, userPassword} = this.state
 
-     fetch('http://localhost:8080/session', {
-            method: 'post',
-            headers: {'Content-Type':'application/json'},
-            body:JSON.stringify( {
-              "password" : userPassword,
-              "username": userName 
-            })
-        })
-        .then(res => res.json())
-        .then(results => {
-          const { token } = results
-          localStorage.token = token
-          this.props.onResults(this.state.userName)
+    return(async()=>{
+      try {
+        const token = await logic.authenticateUser(userName, userPassword)
+        localStorage.token = token
+        this.props.onResults(this.state.userName)
 
-      })
-    
+      } catch({message}) {
+        this.setState({error: message})
+    }
+       
+  })()
   }
 
 

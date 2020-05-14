@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Title } from '../Components/Title'
-import LoginForm  from '../Components/LoginForm'
-import Home  from '../Components/Home'
+import { Title } from '../components/Title'
+import LoginForm  from '../components/LoginForm'
+import Home  from '../components/Home'
 
 export default class Login extends Component {
 
