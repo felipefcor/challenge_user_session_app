@@ -10,6 +10,15 @@
   display: inline-block;
 }
 
+.userData{
+  display: inline-block;
+  width: 80%;
+}
+
+.userData_username{
+ margin: 0 auto;
+}
+
 .feedback__text{
   color: white;
   text-align: center;

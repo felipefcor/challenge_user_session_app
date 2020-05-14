@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
 
-function Home (props) {
+function ButtonLogout (props) {
 
   const { history } = props
 
@@ -22,4 +22,4 @@ function Home (props) {
    
 }
 
-export default withRouter(Home)
+export default withRouter(ButtonLogout)

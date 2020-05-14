@@ -14,6 +14,7 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
+    window.onload = window.localStorage.clear();
     const {username,token} = this.props
     this.fetchUserData({username,token})
 
@@ -23,16 +24,22 @@ export default class Home extends Component {
   render(){
     const {username, token, date } = this.state.data
     return (
-      <div className="userData">
-         <p><strong>Username</strong></p>
-         <p>{username}</p>
-         <p><strong>Token:</strong></p>
-         <p>{token}</p>
-         <p><strong>Fecha:</strong></p>
-         <p>{date}</p>
-         <ButtonLogout />
+    <div className="userData">
+       <article className="message">
+       <div className="message-header">
+        <p className="userData_username">Hello {username}!</p>
+        </div>
+        <div className="message-body">
+        <p className="userData"> <strong>Your token is:</strong></p>
+         {token}
+         <p><strong>Date</strong></p>
+         {date}
       </div>
-      
+    </article>
+    <ButtonLogout />
+    </div>
+
+ 
     )
   }
 }

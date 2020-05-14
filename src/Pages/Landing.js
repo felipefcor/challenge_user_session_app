@@ -30,7 +30,6 @@ export default class Login extends Component {
         </div>
         }
         {this.state.login && this.renderResults()}
-    
       </div>
     )
   }

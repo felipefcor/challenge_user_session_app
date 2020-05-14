@@ -6,7 +6,6 @@ export default class LoginForm extends Component {
   state = {
     userName: '',
     userPassword: '',
-    error: ''
   }
 
   handleUserName = (e) => {
@@ -43,7 +42,6 @@ export default class LoginForm extends Component {
 
   render(){
     return(
-      
       <form className = "loginform" onSubmit = {this.handleSubmit} >
         <div className="field">
           <p className="control has-icons-left has-icons-right">
@@ -66,15 +64,11 @@ export default class LoginForm extends Component {
         </p>
       </div>
       <div className="field ">
-        <p className="control">
           <button className="button is-success">
             Login
           </button>
-        </p>
       </div>
       </form>
-
-     
     )
   }
 
