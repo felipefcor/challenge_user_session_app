@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-const KUBIK_DATA_API_URL = process.env.KUBIK_DATA_API_URL;
+const KUBIK_DATA_API_URL = process.env.REACT_APP_KUBIK_DATA_API_URL;
 
 /**
  * Retrieves a user data by his username and token
@@ -9,7 +9,7 @@ export default function (username, token) {
 
 
     return (async () => {
-        const response = await fetch(`http://localhost:8080/info/${username}/${token}`, {
+        const response = await fetch(`${KUBIK_DATA_API_URL}/info/${username}/${token}`, {
             method: 'get',
                    })
 

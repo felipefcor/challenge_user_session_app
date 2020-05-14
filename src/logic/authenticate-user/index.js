@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-const KUBIK_DATA_API_URL = process.env.KUBIK_DATA_API_URL;
+const KUBIK_DATA_API_URL = process.env.REACT_APP_KUBIK_DATA_API_URL;
 
 /**
  * Creates a user with a username and password and gets a token
@@ -9,7 +9,7 @@ export default function (username, password) {
 
     return (async () => {
         
-        const response = await fetch('http://localhost:8080/session', {
+        const response = await fetch(`${KUBIK_DATA_API_URL}/session`, {
             method: 'post',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({username, password})
