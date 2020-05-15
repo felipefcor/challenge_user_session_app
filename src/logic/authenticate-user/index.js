@@ -15,10 +15,9 @@ export default function (username, password) {
             body: JSON.stringify({username, password})
         })
         
-        
         if (response.status !== 201) {
-            const { error } = await response.json()
-            throw Error(error)
+           const  {error} = await response.json()
+           throw Error(error)
         }
         else {
             const { token } = await response.json()

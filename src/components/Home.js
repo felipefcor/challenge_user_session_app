@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ButtonLogout from './ButtonLogout';
+import Feedback from './Feedback';
+
+
 import logic from '../logic';
 
 
@@ -35,13 +38,14 @@ export default class Home extends Component {
         <p className="userData_username">Hello {username}!</p>
         </div>
         <div className="message-body">
-        <p className="userData"> <strong>Your token is:</strong></p>
+        <p className="userData_token"> <strong>Your token is:</strong></p>
          {token}
          <p><strong>Date</strong></p>
          {date}
       </div>
     </article>
     <ButtonLogout />
+    {this.state.error &&<Feedback /> }
     </div>
 
  

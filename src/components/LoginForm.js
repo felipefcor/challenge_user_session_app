@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Feedback from './Feedback';
+
 import logic from '../logic';
 
 
@@ -39,6 +41,7 @@ export default class LoginForm extends Component {
 
   render(){
     return(
+      <div>
       <form className = "loginform" onSubmit = {this.handleSubmit} >
         <div className="field">
           <p className="control has-icons-left has-icons-right">
@@ -66,7 +69,14 @@ export default class LoginForm extends Component {
           </button>
       </div>
       </form>
+
+
+      {this.state.error &&<Feedback /> }
+
+      </div>
+     
     )
+    
   }
 
 }
