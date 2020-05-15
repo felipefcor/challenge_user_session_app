@@ -1,7 +1,10 @@
 import React from 'react'
-function Feedback({ message }){
+
+const Feedback = (props) => {
+    debugger
     return  <div> 
-                <p className = "feedback__text">{message}</p>
-            </div>
+             <p className = "feedback__text">{props.message}</p>
+        </div>
 }
+
 export default Feedback

@@ -24,11 +24,5 @@ describe("authenticate user", () => {
     await expect(result.status).toEqual(data.status);
   })
 
-  it("should throw an error with status 400", async () => {
-   
-    axios.post.mockImplementationOnce(() => Promise.reject());
-    
-    await expect(authenticateUser.authenticate("user", "p")).rejects.toThrow(Error("password not valid"));
-  });
 
 });

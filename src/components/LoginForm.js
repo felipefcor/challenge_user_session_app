@@ -9,7 +9,7 @@ export default class LoginForm extends Component {
   state = {
     userName: '',
     userPassword: '',
-    error: ''
+    error: undefined
   }
 
  
@@ -38,6 +38,7 @@ export default class LoginForm extends Component {
 
       } catch({message}) {
         this.setState({error: message})
+        
       }
        
   })()
@@ -76,7 +77,7 @@ export default class LoginForm extends Component {
       </form>
 
 
-      {this.state.error &&<Feedback /> }
+      {this.state.error && <Feedback message= {this.state.error} /> }
 
       </div>
      

@@ -34,6 +34,7 @@ export default class Home extends Component {
 
   render(){
     const {username, token, date } = this.state.data
+        
     return (
     <div className="userData">
        <article className="message">
@@ -48,7 +49,7 @@ export default class Home extends Component {
       </div>
     </article>
     <ButtonLogout />
-    {this.state.error &&<Feedback /> }
+    
     </div>
 
  

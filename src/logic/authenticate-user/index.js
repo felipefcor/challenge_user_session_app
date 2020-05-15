@@ -25,7 +25,7 @@ export default class AuthenticateUser {
          return await this.kubikAPI.post(url, data)
        
         }catch(error) {
-                      
+                   debugger   
               throw Error(error.response.data)
           }
             
