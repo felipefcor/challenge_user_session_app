@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import Feedback from './Feedback';
-
-import logic from '../logic';
-
+import AuthenticateUser  from '../logic/authenticate-user'
+import KubikAPI from '../infrastructure/http'
 
 export default class LoginForm extends Component {
 
+  
   state = {
     userName: '',
     userPassword: '',
     error: ''
   }
 
+ 
   handleUserName = (e) => {
     this.setState({userName: e.target.value})
     console.log(this.state.userName)
@@ -27,13 +28,17 @@ export default class LoginForm extends Component {
 
     return(async()=>{
       try {
-        const token = await logic.authenticateUser(userName, userPassword)
-        localStorage.token = token
+        const kubikAPI = new KubikAPI();
+        const authenticate = new AuthenticateUser(kubikAPI);
+        
+        const { data } = await authenticate.authenticate(userName, userPassword)
+        debugger
+        localStorage.token = data.token
         this.props.onResults(this.state.userName)
 
       } catch({message}) {
         this.setState({error: message})
-    }
+      }
        
   })()
   }

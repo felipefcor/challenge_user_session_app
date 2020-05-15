@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ButtonLogout from './ButtonLogout';
 import Feedback from './Feedback';
+import KubikAPI from '../infrastructure/http'
 
-
-import logic from '../logic';
+import RetrieveUserData  from '../logic/retrieve-user-data'
 
 
 export default class Home extends Component {
@@ -12,7 +12,9 @@ export default class Home extends Component {
 
   fetchUserData =  async ({username,token}) => {
     try {          
-      const data = await logic.retrieveUser(username, token)
+      const kubikAPI = new KubikAPI();
+      const retrieveUserData = new RetrieveUserData(kubikAPI);
+      const {data} = await retrieveUserData.retrieveUser(username, token)
       this.setState({data})
     
     } catch({message}) {
@@ -22,6 +24,7 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
+    debugger
     window.onload = window.localStorage.clear();
     const {username,token} = this.props
     this.fetchUserData({username,token})
