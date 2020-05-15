@@ -24,7 +24,7 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
-    debugger
+    
     window.onload = window.localStorage.clear();
     const {username,token} = this.props
     this.fetchUserData({username,token})

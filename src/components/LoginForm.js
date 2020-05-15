@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
         const authenticate = new AuthenticateUser(kubikAPI);
         
         const { data } = await authenticate.authenticate(userName, userPassword)
-        debugger
+        
         localStorage.token = data.token
         this.props.onResults(this.state.userName)
 

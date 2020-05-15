@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Feedback = (props) => {
-    debugger
+    
     return  <div> 
              <p className = "feedback__text">{props.message}</p>
         </div>
